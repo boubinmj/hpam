@@ -12,20 +12,6 @@ def conn_sf():
     sf = conn.sf_login()
     return sf
 
-def get_profiles():
-
-    url = "https://wagner.nyu.edu/api/faculty_profile_employer"
-
-    payload={}
-    headers = {
-    'Authorization': 'Basic bnl1ODE6dHJhdj1scGxhbm49cjEu',
-    'Cookie': 'NO_CACHE=1; SimpleSAMLSessionID=43d0f8df95cf04e9c446dc7bbd1d7fb2'
-    }
-
-    response = requests.request("GET", url, headers=headers, data=payload)
-
-    return json.loads(response.text)
-
 def add_sf_Contact_ids(sf, df, field_name):
     df['sf_id'] = ''
     for index, row in df.iterrows():
